@@ -1,0 +1,91 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'css/my_style.css' %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>{% block title %}Hello, world!{% endblock %}</title>
+</head>
+
+<body style="background-image: url(https://www.b2bwritingsuccess.com/wp-content/uploads/2015/06/bigstock-Woman-Hands-Typing-In-A-Laptop-77151443.jpg); background-size: 100%;">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'home' %}">To-Do List</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" method="POST">
+                {% csrf_token %}
+                <input class="form-control mr-sm-2" type="search" placeholder="To-Do Item" aria-label="Search"
+                    name="item">
+                <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Add To List</button>
+            </form>
+        </div>
+    </nav>
+    <br>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    
+</body>
+<!-- Footer -->
+<footer class="page-footer font-small stylish-color-dark pt-4"> 
+<!-- Social buttons -->
+    <ul class="list-unstyled list-inline text-center" style="position: absolute; bottom: 40px; width: 100%;">
+        <li class="list-inline-item">
+            <a class="btn-floating btn-fb mx-1" href="https://www.facebook.com/serkan.kayser">
+                <i class="fa fa-facebook-f" style="font-size:48px"> </i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="btn-floating btn-tw mx-1" href="https://github.com/serkankayser">
+                <i class="fa fa-github" style="font-size:48px; color: black;"> </i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="btn-floating btn-li mx-1" href="https://www.linkedin.com/in/serkan-kayser/">
+                <i class="fa fa-linkedin-square" style="font-size:48px; color: red;"> </i>
+            </a>
+        </li>
+    </ul>
+    <!-- Social buttons -->
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3" style="position: absolute; background-color: rgb(52,58,65); opacity: 80%; color:white; text-align: center; bottom: 0px; width: 100%;">© 2020 Copyright:
+        <a href="https://www.linkedin.com/in/serkan-kayser/" style="color: white;"> Serkan Kayser</a>
+    </div>
+    <!-- Copyright -->
+</footer>
+<!-- Footer -->
+</html>
